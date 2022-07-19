@@ -12,13 +12,15 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 
 @CapacitorPlugin(name = "KioskMode")
 public class KioskModePlugin extends Plugin {
+	private String TAG = "Capacitor Kiosk Plugin";
 
 	public boolean isInKioskMode() {
 		ActivityManager activityManager = (ActivityManager) getActivity().getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
 		if (Build.VERSION.SDK_INT < 23) {
 			return activityManager.isInLockTaskMode();
 		} else {
-			return activityManager.getLockTaskModeState() == ActivityManager.LOCK_TASK_MODE_LOCKED;
+			Log.i(TAG, "Task Mode: " + Integer.toString(activityManager.getLockTaskModeState()));
+			return activityManager.getLockTaskModeState() > ActivityManager.LOCK_TASK_MODE_NONE;
 		}
 	}
 
@@ -34,14 +36,14 @@ public class KioskModePlugin extends Plugin {
 
 	@PluginMethod
 	public void enterKioskMode(PluginCall call) {
-		Log.i("Capacitor Kiosk Plugin", "Entering Kiosk Mode");
+		Log.i(TAG, "Entering Kiosk Mode");
 		getActivity().startLockTask();
 		call.resolve();
 	}
 
 	@PluginMethod
 	public void exitKioskMode(PluginCall call) {
-		Log.i("Capacitor Kiosk Plugin", "Exit Kiosk Mode");
+		Log.i(TAG, "Exit Kiosk Mode");
 		getActivity().stopLockTask();
 		call.resolve();
 	}
