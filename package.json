@@ -1,6 +1,6 @@
 {
   "name": "capacitor-kiosk",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Android kiosk mode for capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
