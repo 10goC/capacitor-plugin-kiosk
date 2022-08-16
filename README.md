@@ -13,14 +13,27 @@ npx cap sync
 
 <docgen-index>
 
+* [`isInKioskMode()`](#isinkioskmode)
 * [`enterKioskMode()`](#enterkioskmode)
 * [`exitKioskMode()`](#exitkioskmode)
 * [`toggleKioskMode()`](#togglekioskmode)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### isInKioskMode()
+
+```typescript
+isInKioskMode() => Promise<KioskModeStatus>
+```
+
+**Returns:** <code>Promise&lt;<a href="#kioskmodestatus">KioskModeStatus</a>&gt;</code>
+
+--------------------
+
 
 ### enterKioskMode()
 
@@ -47,5 +60,15 @@ toggleKioskMode() => Promise<void>
 ```
 
 --------------------
+
+
+### Interfaces
+
+
+#### KioskModeStatus
+
+| Prop        | Type                 |
+| ----------- | -------------------- |
+| **`value`** | <code>boolean</code> |
 
 </docgen-api>
